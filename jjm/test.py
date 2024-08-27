@@ -213,7 +213,7 @@ def recur_scrape(current_dir):
         print("Permission denied: Unable to create directories.")
         return
     options = FirefoxOptions()
-    # options.add_argument("--headless")
+    # options.add_argument("--headles
     driver = webdriver.Firefox(options=options)
     driver.get(rf"https://ejalshakti.gov.in/JJM/JJM/Public/Profile/VillageProfile.aspx")
     sleep(5)
