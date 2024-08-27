@@ -190,7 +190,7 @@ def _districts(driver, current_dir):
         print(item)
 
         # district_elements = driver.find_elements(By.XPATH, '//*[contains(@id, "CPHPage_ddDistrict")]//option')[0].text.split(
-
+        # Git
         district_elements = driver.find_elements(By.XPATH, '//*[contains(@id, "CPHPage_ddDistrict")]//option')[19:]
         district_names = [dist.text.strip() for dist in district_elements]
         for dist_text in district_names:
