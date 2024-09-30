@@ -7,7 +7,7 @@ def clean_json_content(content):
     return re.sub(r'[\x00-\x1F\x7F-\x9F]', ' ', content)  # Replace control characters
 
 def json_formater():
-    filepath = r"D:\excel_to_json\english\Karnataka Rakshana Vedike2-Mulabagal.json"
+    filepath = r"D:\output1.json"
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             content = f.read()
@@ -34,7 +34,7 @@ def json_formater():
     if len(data) > 0:
         print(f"Data snippet:\n{data[:2]}")
 
-    req_data = [(str(x['Name']), str(x['Mobile No.'])) for x in data]
+    req_data = [(str(x['Name']), str(x['Ph_no']), str(x['village_name']), str(x['caste'])) for x in data]
     payload = []
 
     for i in range(len(req_data)):
@@ -50,14 +50,14 @@ def json_formater():
                 "phonenumber": req_data[i][1],
                 "whatsapp_number": req_data[i][1]
             },
-            "node" : {},
+            "village" : req_data[i][2],
             "more": {
                 "primary_occupation": "",
                 "additional_information": "",
                 "local_elections_contested": ""
             },
             "influence": {
-                "Caste": {},
+                "Caste": req_data[i][3],
                 "voters": ""
             },
             "affiliation": {
@@ -80,7 +80,7 @@ def json_formater():
     return payload
 
 if __name__ == '__main__':
-    output_filepath = r"D:\excel_to_json\data_injection\Karnataka Rakshana Vedike2-Mulabagal.json"
+    output_filepath = r"D:\excel_to_json\data_injection\vill.json"
     d = json_formater()
 
     def write_json(obj, filepath, ensure_ascii=False):

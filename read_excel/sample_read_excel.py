@@ -1,6 +1,6 @@
 import json
 from fuzzywuzzy import fuzz
-from sample import write_json
+from fuzzy_match.fuzzy import write_json
 
 
 def merge_json():

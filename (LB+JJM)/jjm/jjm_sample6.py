@@ -76,7 +76,7 @@ def profile_selector(driver):
                     # time.sleep(5)
 
 def main():
-    path = r"/drivers/chromedriver.exe"
+    path = r"../../Drivers/chromedriver.exe"
     # _options = Options()
     # _options.add_argument("--window-size=1920,1080")
 
